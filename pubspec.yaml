@@ -36,6 +36,7 @@ dependencies:
   animated_text_kit: ^4.2.1 # For animated text effects
   flutter_rating_bar: ^4.0.0
   fluttertoast: ^8.0.8
+  supabase_flutter: ^1.2.0
 
   
 

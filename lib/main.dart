@@ -4,8 +4,17 @@ import 'package:spring/screens/home_screen.dart';
 import 'package:spring/screens/register_worker_screen.dart';
 import 'package:spring/screens/skills_development_screen.dart';
 import 'package:spring/screens/my_information_screen.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Supabase
+  await Supabase.initialize(
+    url: 'https://qvljfhzifxnpzpxlndqv.supabase.co',
+    anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF2bGpmaHppZnhucHpweGxuZHF2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjM1NzQ3NDQsImV4cCI6MjAzOTE1MDc0NH0.tzubCHN3C_BF09MG5fG3DGrKetLFPV2jmvAKzKL2ZBk',
+  );
+
   runApp(MyApp());
 }
 
@@ -16,19 +25,19 @@ class MyApp extends StatelessWidget {
       title: 'Spring App',
       theme: ThemeData(
         primaryColor: Colors.green[800],
-        scaffoldBackgroundColor: Color(0xFF1B5E20), // Dark green background
+        scaffoldBackgroundColor: Colors.white, // White background
         textTheme: GoogleFonts.poppinsTextTheme(
-          Theme.of(context).textTheme.apply(bodyColor: Colors.white),
+          Theme.of(context).textTheme.apply(bodyColor: Colors.black),
         ),
         appBarTheme: AppBarTheme(
-          color: Color(0xFF2E7D32), // Darker green for the app bar
+          color: Colors.green[800], // Green app bar
           elevation: 5, toolbarTextStyle: GoogleFonts.poppinsTextTheme(
             Theme.of(context).textTheme.apply(bodyColor: Colors.white),
           ).bodyMedium, titleTextStyle: GoogleFonts.poppinsTextTheme(
             Theme.of(context).textTheme.apply(bodyColor: Colors.white),
-          ).bodyMedium,
+          ).titleLarge,
         ),
-        cardColor: Color(0xFF388E3C), colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.greenAccent), // Green color for cards
+        cardColor: Colors.white, colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.greenAccent), // White card background
       ),
       initialRoute: '/',
       routes: {
