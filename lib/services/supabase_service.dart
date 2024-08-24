@@ -41,11 +41,21 @@ class SupabaseService {
   }
 
   // Update a worker’s rating
-  Future<void> updateWorkerRating(String id, double newRating) async {
-    final response = await _client.from('workers').update({
-      'average_rating': newRating,
-    }).eq('id', id).execute();
+   Future<void> updateWorkerRating(String id, double newRating, int newRatingCount) async {
+print('Updating worker with id: $id');
+    print('New rating: $newRating, New rating count: $newRatingCount');
 
+    final response = await _client
+        .from('workers')
+        .update({
+          'average_rating': newRating,
+          'rating_count': newRatingCount,
+        })
+        .eq('id', id)
+        .execute();
+
+    print('Response data: ${response.data}');
+    print('Response error: ${response}');
     // Handle errors
     if (response.status != 200) {
       throw Exception('Failed to update rating:Unknown error 3');

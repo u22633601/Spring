@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:spring/models/worker_model.dart';
 import 'package:spring/screens/home_screen.dart';
+import 'package:spring/screens/rate_worker_screen.dart';
 import 'package:spring/screens/register_worker_screen.dart';
 import 'package:spring/screens/skills_development_screen.dart';
 import 'package:spring/screens/my_information_screen.dart';
@@ -43,6 +45,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomeScreen(),
         '/registerWorker': (context) => RegisterWorkerScreen(),
+        '/rateWorker': (context) => RateWorkerScreen(),
         '/skillsDevelopment': (context) => SkillsDevelopmentScreen(),
         '/myInformation': (context) => MyInformationScreen(),
       },
